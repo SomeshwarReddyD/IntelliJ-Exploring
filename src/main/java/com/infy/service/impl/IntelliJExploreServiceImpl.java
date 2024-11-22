@@ -19,4 +19,6 @@ public class IntelliJExploreServiceImpl implements IntelliJExploreServ {
 
         return repository.findAll();
     }
+
+
 }

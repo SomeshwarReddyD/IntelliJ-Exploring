@@ -5,9 +5,7 @@ import com.infy.service.IntelliJExploreServ;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +16,12 @@ public class IntelliJExplorController {
 
     private final IntelliJExploreServ service;
 
-    @GetMapping("/students")
+    @GetMapping("login")
+    public ResponseEntity<?> login(@RequestBody Student student) {
+        return new ResponseEntity<>(service.verifyAndProvideJWT(student), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/students", method = RequestMethod.GET)
     public ResponseEntity<List<Student>> getStudents(){
 
         return new ResponseEntity<>(service.getStudents(), HttpStatus.OK);

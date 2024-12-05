@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface IntelliJExploreServ {
     public List<Student> getStudents();
+
+
+    String verifyAndProvideJWT(Student student);
 }

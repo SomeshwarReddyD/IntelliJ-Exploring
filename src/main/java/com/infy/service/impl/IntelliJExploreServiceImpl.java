@@ -28,8 +28,9 @@ public class IntelliJExploreServiceImpl implements IntelliJExploreServ {
 
     @Override
     public String verifyAndProvideJWT(Student student) {
-        System.out.println("coming here::::");
+
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(student.getUsername(), student.getPassword());
+
         Authentication authenticatedUserObject = authenticationManager.authenticate(authenticationToken);
 
         if (authenticatedUserObject.isAuthenticated()) {
